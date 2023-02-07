@@ -222,9 +222,11 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 ![Technologies](https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Technologies](https://img.shields.io/badge/-Node.js-339933?logo=Node.js&logoColor=white)
 ![Technologies](https://img.shields.io/badge/-npm-CB3837?logo=npm&logoColor=white)
-![Technologies](https://img.shields.io/badge/Express-green)
-![Technologies](https://img.shields.io/badge/MongoDB-purple)
-![Technologies](https://img.shields.io/badge/Mongoose-yellow)
+![Technologies](https://img.shields.io/badge/npm%20package-moment-%3CCOLOR%3E?style=flat-square&logo=npm)
+![Technologies](https://img.shields.io/badge/npm%20package-express-green?style=flat-square&logo=npm)
+![Technologies](https://img.shields.io/badge/npm%20package-mongoose-purple?style=flat-square&logo=npm) 
+![Technologies](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB) 
+
 
 
 ## Support
