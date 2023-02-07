@@ -2,10 +2,11 @@
 HW CHALLENGE #18
 
 ## Description
-Our challenge for this assignment is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. We are to use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addtion to using Express.js and Mongoose packages, we also had the option to use a Javascript date library of our choice or the native Javascript `Date` object to format timestamps. 
+Our challenge for this assignment is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. We are to use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addtion to using Express.js and Mongoose packages, we also had the option to use a Javascript date library of our choice or the native Javascript `Date` object to format timestamps. [click here](https://github.com/hannybear88/NoSQL-Challenge-Social-Network-API)to see my code for this project.
 
 ## Table of Contents
 * [Installation](#installation)
+* [Tests](#Tests)
 * [Getting Started](#Getting-Started)
 * [User Story](#User-Story)
 * [Acceptance Criteria](#Acceptance-Criteria)
@@ -18,7 +19,19 @@ Our challenge for this assignment is to build an API for a social network web ap
 
 
 ## Installation
-`npm` install 
+1. Clone the repo
+2. Install all dependencies 
+    - `npm init -y`
+    - `npm` install 
+3. Start the server 
+4.   - `npm` start
+
+5. Open Insomnia Core to test API routes
+
+
+## Tests
+Testing restful API calls with Insomnia Core
+[click here](https://docs.insomnia.rest/insomnia/install) to install Insomnia
 
 
 ## Getting Started 
@@ -133,6 +146,7 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 ## Usage
 `npm` start
 
+------------------------
 
 * TAGS
     * GET all tags
@@ -142,19 +156,19 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
     * CREATE new tag
         * POST http://localhost:8003/api/tags
         * The JSON body request should look like below: 
-        `````
+    `````
         {
-	    "tag_name": "purple"
+	        "tag_name": "purple"
         }
-        `````
+    `````
     * UPDATE tag by id
         * PUT http://localhost:8003/api/tags/:id
         * The JSON body request should look like below: 
-        `````
+    `````
         {
-	    "tag_name": "light purple"
+	        "tag_name": "light purple"
         }
-        `````
+    ``````
     * DELETE tag by id
         * DELETE http://localhost:8003/api/tags/:id
 * PRODUCTS
@@ -213,9 +227,86 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
         * DELETE http://localhost:8003/api/categories/:id
 ## Demo
 
+Walkthrough Video
+
+Please [click here] (link here) for a walkthrough video that demonstrates the application's functionality.
+
 <!-- Click on the button below to be directed straight to the Heroku deployed application
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://model-view-controller--mvc.herokuapp.com/) -->
+
+Screenshots
+**TAGS**
+
+* GET all tags 
+![Get all tags](assets/images/GET_all_tags_screenshot.png)
+
+* GET one tag by id
+![GET one tag by id](assets/images/GET_one_tag_by_id_screenshot.png)
+
+* CREATE new tag
+![CREATE new tag](assets/images/CREATE_new_tag_screenshot.png)
+
+* CREATE one tag by id after creating new tag
+![CREATE one tag by id after creating new tag](assets/images/GET_one_tag_by_id_after_creating_new_tag_screenshot.png)
+
+* UPDATE tag by id
+![UPDATE tag by id](/assets/images/UPDATE_tag_by_id.png)
+
+* GET one tag by id after updating new tag 
+![GET one tag by id after updating new tag ](/assets/images/GET_one_tag_by_id_after_updating_new_tag_screenshot.png)
+
+* DELETE tag by id
+![DELETE tag by id](assets/images/DELETE_tag_by_id_screenshot.png)
+
+**PRODUCTS**
+
+* GET all products
+![GET all products](/assets/images/GET_all_products_screenshot.png)
+
+* GET one product by id
+![GET one product by id](/assets/images/GET_one_product_by_id_screenshot.png)
+
+* CREATE new product
+![CREATE new product](/assets/images/CREATE_new_product_screenshot.png)
+
+* CREATE one product by id after creating new product
+![CREATE one tag by id after creating new tag](assets/images/GET_one_product_by_id_after_creating_new_product_screenshot.png)
+
+* UPDATE product by id
+![UPDATE product by id](/assets/images/UPDATE_product_by_id.png)
+
+* GET one product by id after updating new product
+![GET one tag by id after updating new tag ](/assets/images/GET_one_product_by_id_after_updating_new_product_screenshot.png)
+
+* DELETE product by id
+![DELETE product by id](/assets/images/DELETE_product_by_id_screenshot.png)
+
+**CATEGORIES**
+
+* GET all categories
+    ![GET all categories](/assets/images/GET_all_categories_screenshot.png)
+
+* GET one cateogry by id
+    ![GET one category by id](/assets/images/GET_one_category_by_id_screenshot.png)
+
+* CREATE new category
+![CREATE new category](/assets/images/CREATE_new_category_screenshot.png)
+
+* CREATE one category by id after creating new category
+![CREATE one tag by id after creating new tag](assets/images/GET_one_category_by_id_after_creating_new_category_screenshot.png)
+
+
+* UPDATE category by id
+![UPDATE category by id](/assets/images/UPDATE_category_by_id.png)
+
+* GET one category by id after updating new category
+![GET one tag by id after updating new tag ](/assets/images/GET_one_category_by_id_after_updating_new_category_screenshot.png)
+
+* DELETE category by id
+![DELETE category by id](/assets/images/DELETE_category_by_id_screenshot.png)
+
+
 
 ## Technologies Used
 
