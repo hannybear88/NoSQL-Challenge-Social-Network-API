@@ -325,10 +325,8 @@ If you need support or have any questions about the repo, please [open an issue]
 
 
 ## Credits
-- Starter code provided by UCSD 
 - Code by Hannah Chung
 
 
 ## Contributors
-- Starter code provided by UCSD 
 - Code by Hannah Chung
