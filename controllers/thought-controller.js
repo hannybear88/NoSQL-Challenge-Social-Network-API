@@ -50,7 +50,19 @@ router.delete("/:id", (req, res) => {
 
 // Post reactions in reaction array field
 router.post("/:thoughtId/reactions", (req, res) => {
-    Thought.create(req.body).then((result) => {
+    Thought.update(
+		{
+			_id: req.params.thoughtId
+		},
+		{
+			$push: {
+				reactions: req.body
+			}
+		},
+		{
+			new: true
+		}
+	).then((result) => {
         Thought.findByIdAndUpdate(req.params.thoughtId, {$push: {reactions: result}}).then((result) => {
             res.json(result);
         });
@@ -58,13 +70,17 @@ router.post("/:thoughtId/reactions", (req, res) => {
 });
 
 // Delete reactions in from reaction array field
-router.delete("/:thoughtId/reactions/", (req, res) => {
+router.delete("/:thoughtId/reactions/:reactionId", (req, res) => {
 	const update = {
         $pull: {
-            reactions: req.body.reactionId
+            reactions: {
+				_id:req.params.reactionId
+			}
         }
     };
-	Thought.findByIdAndUpdate(req.params.id, update).then((result) => {
+	Thought.findByIdAndUpdate(req.params.thoughtId, update).then((result) => {
 		res.json(result);
 	});
 });
+
+module.exports = router;

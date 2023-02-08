@@ -59,7 +59,7 @@ router.delete("/:id", (req, res) => {
 router.post("/:userId/friends/:friendId", (req, res) => {
 	const update = {
 		$push: {
-			reactions: req.params.friendId,
+			friends: req.params.friendId,
 		},
 	};
 	User.findByIdAndUpdate(req.params.userId, update, {new: true,}).then((result) => {
@@ -71,8 +71,8 @@ router.post("/:userId/friends/:friendId", (req, res) => {
 // Delete a friend from the user's friend list
 router.delete("/:userId/friends/:friendId", (req, res) => {
 	const update = {
-		$push: {
-			reactions: req.params.friendId,
+		$pull: {
+			friends: req.params.friendId,
 		},
 	};
 	User.findByIdAndUpdate(req.params.userId, update, {new: true,}).then((result) => {
