@@ -95,25 +95,27 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 
 ### API Routes
 `/api/users`
-    - `GET` all users
-    - `GET` a single user by its `_id` and populated thought and friend data 
-    - `POST` a new user: 
-    `//example data 
+-  `GET` all users
+-  `GET` a single user by its `_id` and populated thought and friend data 
+-  `POST` a new user: 
+    `````
+    //example data 
     { "username": "lernantino", 
     "email": "lernantino@gmail.com
-    }`
-    - `PUT` to update a user by its `_id` .         
-    - `DELETE` to remove a user by its `_id`
+    }
+    `````
+-  `PUT` to update a user by its `_id` .         
+-  `DELETE` to remove a user by its `_id`
 
 #### BONUS: Remove a user's associated thoughts when deleted. 
 
 `/api/users/:userId/friends/:friendId`
-* `POST` to add a new friend to a user's friend list
-* `DELETE` to remove a friend from a user's friend list
+- `POST` to add a new friend to a user's friend list
+-  `DELETE` to remove a friend from a user's friend list
 `/api/thoughts`
-* `GET` to get all thoughts
-*  `GET` to get a single thoughts by its `_id`
-*  `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
+-  `GET` to get all thoughts
+-   `GET` to get a single thoughts by its `_id`
+-   `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
     `````
     // example data
     {
@@ -122,11 +124,13 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
         "userId": "5edff358a0fcb779aa7b118b"
     }
     `````
-    - `PUT` to update a thought by its `_id`
-    -`DELETE` to remove a thought by its `_id`
+-   `PUT` to update a thought by its `_id`
+-  `DELETE` to remove a thought by its `_id`
+
 `/api/thoughts/:thoughtId/reactions`
-    - `POST` to create a reaction stored in single thought's `reaction` array field
-    - `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
+
+-  `POST` to create a reaction stored in single thought's `reaction` array field
+-   `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
 
 
 ## User Story
@@ -150,30 +154,34 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 
 ------------------------
 
-* TAGS
-    * GET all tags
-        *  http://localhost:8003/api/tags
-    * GET one tag by id
-            * GET http://localhost:8003/api/tags/:id
-    * CREATE new tag
-        * POST http://localhost:8003/api/tags
+* USERS
+    * GET all users
+        *  localhost:3001/api/user/
+    * GET One User by id
+            * GET http://localhost:3001/api/user/:id
+    * CREATE User
+        * POST http://localhost:3001/api/user
         * The JSON body request should look like below: 
-    `````
-        {
-	        "tag_name": "purple"
-        }
-    `````
-    * UPDATE tag by id
-        * PUT http://localhost:8003/api/tags/:id
+        `````
+            {
+	            "username": "akuma",
+                "email": "akuma@gmail.com"
+            }
+        `````
+    * UPDATE User by id
+        * PUT http://localhost:3001/api/user/:id
         * The JSON body request should look like below: 
-    `````
-        {
-	        "tag_name": "light purple"
-        }
-    ``````
-    * DELETE tag by id
-        * DELETE http://localhost:8003/api/tags/:id
-* PRODUCTS
+        `````
+            {
+	            "username": "akuma1",
+                "email": "akuma@gmail.com"
+
+            }
+        ``````
+    * DELETE User by id
+        * DELETE http://localhost:3001/api/user/:id
+
+* THOUGHTS
     * GET all products
         * GET http://localhost:8003/api/products
     * GET one product by id
