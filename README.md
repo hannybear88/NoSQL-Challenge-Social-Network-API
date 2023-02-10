@@ -158,14 +158,14 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
     * GET all users
         *  localhost:3001/api/user/
     * GET One User by id
-            * GET http://localhost:3001/api/user/:id
+        * GET http://localhost:3001/api/user/:id
     * CREATE User
         * POST http://localhost:3001/api/user
         * The JSON body request should look like below: 
         `````
             {
-	            "username": "akuma",
-                "email": "akuma@gmail.com"
+	            "username": "asuma",
+                "email": "asuma@gmail.com"
             }
         `````
     * UPDATE User by id
@@ -173,8 +173,8 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
         * The JSON body request should look like below: 
         `````
             {
-	            "username": "akuma1",
-                "email": "akuma@gmail.com"
+	            "username": "asuma1",
+                "email": "asuma@gmail.com"
 
             }
         ``````
@@ -183,58 +183,53 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 
 * THOUGHTS
     * GET all products
-        * GET http://localhost:8003/api/products
+        * GET localhost:3001/api/thought
     * GET one product by id
-        * GET http://localhost:8003/api/products/:id
+        * GET localhost:3001/api/thought/:id
     * CREATE new product
-        * POST http://localhost:8003/api/products
+        * POST localhost:3001/api/thought
         * The JSON body request should look like below: 
         `````
-        {
-	        "product_name": "boots",
-	        "price": 100.00,
-	        "stock": 10,
-	        "category_id": 5,
-	        "tagIds": [6,7]
-        }
+	        {
+                "thoughtText": "those who leave their friends are worse than scum",
+                "username": "kakashi",
+                "userId": "63e2ef48db8f76f58b233cff"
+            }
         `````
     * UPDATE product by id
-        * PUT http://localhost:8003/api/products/:id
+        * PUT localhost:3001/api/thought/:id
         * The JSON body request should look like below: 
         `````
         {
-	        "product_name": "steel toed boots",
-	        "price": 150.00,
-	        "stock": 20,
-	        "category_id": 5,
-	        "tagIds": [6,7]
+	        "thoughtText": "Hi...",
+            "username": "kakashi",
+            "userId": "63e2ef48db8f76f58b233cff"
         }
         `````
         * DELETE products by id
-            * DELETE http://localhost:8003/api/products/:id
-* CATEGORIES
-    * GET all categories
-        * GET http://localhost:8003/api/categories
-    * GET one category by id
-        * GET http://localhost:8003/api/categories/:id
-    * CREATE new category
-        * POST http://localhost:8003/api/categories
+            * DELETE localhost:3001/api/thought/:id
+* REACTIONS
+    * CREATE new reaction
+        * POST http://localhost:3001/api/thoughts/:thoughtId/reactions
         * The JSON body request should look like below: 
         `````
         {
 	        "category_name": "sweater"
         }
         `````
-    * UPDATE category by id
-        * PUT http://localhost:8003/api/categories/:id
+    * REMOVE reaction
+        * DELETE http://localhost:3001/api/thoughts/:thoughtId/reactions/:id
+* FRIENDS
+    * CREATE new Friend
+        * POST http://localhost:3001/api/thoughts/:thoughtId/reactions
         * The JSON body request should look like below: 
         `````
         {
-	        "category_name": "sweater vest"
+	        "category_name": "sweater"
         }
         `````
-    * DELETE category by id
-        * DELETE http://localhost:8003/api/categories/:id
+    * REMOVE Friend
+        * DELETE http://localhost:3001/api/thoughts/:thoughtId/reactions/:id
 ## Demo
 
 Walkthrough Video
