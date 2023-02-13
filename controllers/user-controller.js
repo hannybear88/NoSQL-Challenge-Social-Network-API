@@ -4,8 +4,9 @@ const { User, Thought } = require("../models");
 // DBEUG CONST
 const DEBUG_DELETE_THOUGHTS = true;
 
-// Get all users
-router.get("/", (req, res) => {
+// Functions
+
+exports.getAllUser = (req, res) => {
 	try {
 		User.find().then((result) => {
 			res.json(result);
@@ -13,10 +14,9 @@ router.get("/", (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
-});
+}
 
-// Get a user
-router.get("/:id", (req, res) => {
+exports.getUserById = (req, res) => {
 	try {
 		User.findById(req.params.id)
 			.populate("thoughts")
@@ -27,36 +27,37 @@ router.get("/:id", (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
-});
+}
 
-// Post a new user
-router.post("/", (req, res) => {
+exports.createUser = (req, res) => {
 	User.create(req.body).then((result) => {
 		res.json(result);
 	});
-});
+}
 
-// Put an update to a user by _id
-router.put("/:id", (req, res) => {
+exports.updateUser = (req, res) => {
 	User.findByIdAndUpdate(req.params.id, req.body, {
 		new: true,
 	}).then((result) => {
 		res.json(result);
 	});
-});
+}
 
-// Delete the user by _id
-router.delete("/:id", (req, res) => {
-	User.findByIdAndDelete(req.params.id).then((result) => {
+exports.deleteUser = (req, res) => {
+	User.findById(req.params.id).then((result) => {
+		return Thought.deleteMany({_id: {$in: result.thoughts}})
+	}).then(() => {
+		return User.findByIdAndDelete(req.params.id)
+	}).then((result) => {
 		res.json(result);
-	});
-});
+	})
+		.catch((err) => {
+		console.log (err)
+		res.json(err)
+	})
+}
 
-// Function to delete user's associated thoughts
-
-// ADD FRIEND
-// Post a new friend to user data
-router.post("/:userId/friends/:friendId", (req, res) => {
+exports.addFriend = (req, res) => {
 	const update = {
 		$push: {
 			friends: req.params.friendId,
@@ -65,11 +66,9 @@ router.post("/:userId/friends/:friendId", (req, res) => {
 	User.findByIdAndUpdate(req.params.userId, update, {new: true,}).then((result) => {
 		res.json(result);
 	});
-});
+}
 
-// DELETE FRIEND
-// Delete a friend from the user's friend list
-router.delete("/:userId/friends/:friendId", (req, res) => {
+exports.removeFriend = (req, res) => {
 	const update = {
 		$pull: {
 			friends: req.params.friendId,
@@ -78,6 +77,4 @@ router.delete("/:userId/friends/:friendId", (req, res) => {
 	User.findByIdAndUpdate(req.params.userId, update, {new: true,}).then((result) => {
 		res.json(result);
 	});
-});
-
-module.exports = router;
+}
