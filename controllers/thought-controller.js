@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { User, Thought } = require("../models");
 
-// Get all thoughts
-router.get("/", (req, res) => {
+// Functions
+exports.getAllThought = (req, res) => {
 	try {
 		Thought.find().then((result) => {
 			res.json(result);
@@ -10,10 +10,9 @@ router.get("/", (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
-});
+}
 
-// Get a thought
-router.get("/:id", (req, res) => {
+exports.getThoughtById = (req, res) => {
 	try {
 		Thought.findById(req.params.id).then((result) => {
 			res.json(result);
@@ -21,36 +20,36 @@ router.get("/:id", (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
-});
+}
 
-// Post a new thought
-router.post("/", (req, res) => {
+exports.createThought = (req, res) => {
 	Thought.create(req.body).then((result) => {
-		res.json(result);
+		User.findByIdAndUpdate(req.body.userId, {
+			$push: {
+				thoughts: result._id
+			}
+		}) .then(() =>{
+			res.json(result);
+		})
 	});
-});
+}
 
-// Put an update to a thought by _id
-router.put("/:id", (req, res) => {
+exports.updateThought = (req, res) => {
 	Thought.findByIdAndUpdate(req.params.id, req.body, {
 		new: true,
 	}).then((result) => {
 		res.json(result);
 	});
-});
+}
 
-// Delete the thought by _id
-router.delete("/:id", (req, res) => {
+exports.deleteThought = (req, res) => {
 	Thought.findByIdAndDelete(req.params.id).then((result) => {
 		res.json(result);
 	});
-});
+}
 
-// REACTIONS
-
-// Post reactions in reaction array field
-router.post("/:thoughtId/reactions", (req, res) => {
-    Thought.update(
+exports.addReaction = (req, res) => {
+	Thought.update(
 		{
 			_id: req.params.thoughtId
 		},
@@ -67,10 +66,9 @@ router.post("/:thoughtId/reactions", (req, res) => {
             res.json(result);
         });
     });
-});
+}
 
-// Delete reactions in from reaction array field
-router.delete("/:thoughtId/reactions/:reactionId", (req, res) => {
+exports.removeReaction = (req, res) => {
 	const update = {
         $pull: {
             reactions: {
@@ -81,6 +79,4 @@ router.delete("/:thoughtId/reactions/:reactionId", (req, res) => {
 	Thought.findByIdAndUpdate(req.params.thoughtId, update).then((result) => {
 		res.json(result);
 	});
-});
-
-module.exports = router;
+}
