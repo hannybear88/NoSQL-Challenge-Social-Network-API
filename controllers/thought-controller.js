@@ -24,8 +24,10 @@ exports.getThoughtById = (req, res) => {
 
 exports.createThought = (req, res) => {
 	Thought.create(req.body).then((result) => {
-		User.findByIdAndUpdate(req.body.userId, {
-			$push: {
+		// User.findByIdAndUpdate(req.body.userId, {
+		User.findOneAndUpdate(
+			{_id: req.body.userId},
+			{$push: {
 				thoughts: result._id
 			}
 		}) .then(() =>{
