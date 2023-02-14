@@ -201,9 +201,7 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
         * The JSON body request should look like below: 
         `````
         {
-	        "thoughtText": "Hi...",
-            "username": "kakashi",
-            "userId": "63e2ef48db8f76f58b233cff"
+	        "thoughtText": "Hi..."
         }
         `````
         * DELETE products by id
@@ -213,8 +211,9 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
         * POST http://localhost:3001/api/thoughts/:thoughtId/reactions
         * The JSON body request should look like below: 
         `````
-        {
-	        "category_name": "sweater"
+       {
+	        "reactionBody": "Hello Team 7",
+	        "username": "jiraiya"
         }
         `````
     * REMOVE reaction
@@ -222,95 +221,21 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 * FRIENDS
     * CREATE new Friend
         * POST http://localhost:3001/api/thoughts/:thoughtId/reactions
-        * The JSON body request should look like below: 
-        `````
-        {
-	        "category_name": "sweater"
-        }
-        `````
+
     * REMOVE Friend
         * DELETE http://localhost:3001/api/thoughts/:thoughtId/reactions/:id
 ## Demo
 
 Walkthrough Video
 
-Please [click here] (link here) for a walkthrough video that demonstrates the application's functionality.
+Please [click here](https://youtu.be/quTTcE4KK0w) for a walkthrough video that demonstrates the application's functionality.
 
-<!-- Click on the button below to be directed straight to the Heroku deployed application
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://model-view-controller--mvc.herokuapp.com/) -->
 
 Screenshots
-**TAGS**
-
-* GET all tags 
-![Get all tags](assets/images/GET_all_tags_screenshot.png)
-
-* GET one tag by id
-![GET one tag by id](assets/images/GET_one_tag_by_id_screenshot.png)
-
-* CREATE new tag
-![CREATE new tag](assets/images/CREATE_new_tag_screenshot.png)
-
-* CREATE one tag by id after creating new tag
-![CREATE one tag by id after creating new tag](assets/images/GET_one_tag_by_id_after_creating_new_tag_screenshot.png)
-
-* UPDATE tag by id
-![UPDATE tag by id](/assets/images/UPDATE_tag_by_id.png)
-
-* GET one tag by id after updating new tag 
-![GET one tag by id after updating new tag ](/assets/images/GET_one_tag_by_id_after_updating_new_tag_screenshot.png)
-
-* DELETE tag by id
-![DELETE tag by id](assets/images/DELETE_tag_by_id_screenshot.png)
-
-**PRODUCTS**
-
-* GET all products
-![GET all products](/assets/images/GET_all_products_screenshot.png)
-
-* GET one product by id
-![GET one product by id](/assets/images/GET_one_product_by_id_screenshot.png)
-
-* CREATE new product
-![CREATE new product](/assets/images/CREATE_new_product_screenshot.png)
-
-* CREATE one product by id after creating new product
-![CREATE one tag by id after creating new tag](assets/images/GET_one_product_by_id_after_creating_new_product_screenshot.png)
-
-* UPDATE product by id
-![UPDATE product by id](/assets/images/UPDATE_product_by_id.png)
-
-* GET one product by id after updating new product
-![GET one tag by id after updating new tag ](/assets/images/GET_one_product_by_id_after_updating_new_product_screenshot.png)
-
-* DELETE product by id
-![DELETE product by id](/assets/images/DELETE_product_by_id_screenshot.png)
-
-**CATEGORIES**
-
-* GET all categories
-    ![GET all categories](/assets/images/GET_all_categories_screenshot.png)
-
-* GET one cateogry by id
-    ![GET one category by id](/assets/images/GET_one_category_by_id_screenshot.png)
-
-* CREATE new category
-![CREATE new category](/assets/images/CREATE_new_category_screenshot.png)
-
-* CREATE one category by id after creating new category
-![CREATE one tag by id after creating new tag](assets/images/GET_one_category_by_id_after_creating_new_category_screenshot.png)
 
 
-* UPDATE category by id
-![UPDATE category by id](/assets/images/UPDATE_category_by_id.png)
-
-* GET one category by id after updating new category
-![GET one tag by id after updating new tag ](/assets/images/GET_one_category_by_id_after_updating_new_category_screenshot.png)
-
-* DELETE category by id
-![DELETE category by id](/assets/images/DELETE_category_by_id_screenshot.png)
-
+![Screenshot](images/GET_all_users.png)
 
 
 ## Technologies Used
