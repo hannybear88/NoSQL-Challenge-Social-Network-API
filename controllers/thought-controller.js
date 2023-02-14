@@ -74,7 +74,7 @@ exports.removeReaction = (req, res) => {
 	const update = {
         $pull: {
             reactions: {
-				_id:req.params.reactionId
+				reactionId:req.params.reactionId
 			}
         }
     };

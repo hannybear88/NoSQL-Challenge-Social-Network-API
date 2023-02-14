@@ -229,6 +229,7 @@ This will not be a model, but rather will be used as a `reaction` field's subdoc
 Walkthrough Video
 
 Please [click here](https://youtu.be/quTTcE4KK0w) for a walkthrough video that demonstrates the application's functionality.
+Please [click here](https://youtu.be/cgFUAmTKNuo) for the walkthrough video on the reaction portion. 
 
 
 
