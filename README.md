@@ -2,7 +2,7 @@
 HW CHALLENGE #18
 
 ## Description
-Our challenge for this assignment is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. We are to use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addtion to using Express.js and Mongoose packages, we also had the option to use a Javascript date library of our choice or the native Javascript `Date` object to format timestamps. [click here](https://github.com/hannybear88/NoSQL-Challenge-Social-Network-API)to see my code for this project.
+Our challenge for this assignment is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. We are to use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addtion to using Express.js and Mongoose packages, we also had the option to use a Javascript date library of our choice or the native Javascript `Date` object to format timestamps. As a BONUS we had to remove a user's associated thoughts when deleted, which I had done as well.[click here](https://github.com/hannybear88/NoSQL-Challenge-Social-Network-API)to see my code for this project.
 
 ## Table of Contents
 * [Installation](#installation)
